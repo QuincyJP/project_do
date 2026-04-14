@@ -8,6 +8,7 @@ import com.example.demo.model.Student;
 
 @RestController
 public class StudentController {
+
     @Autowired
     private StudentRepository studentrepo;
 
@@ -15,10 +16,9 @@ public class StudentController {
     public List<Student> getAllStudents() {
         return studentrepo.findAll();
     }
+
     @PostMapping("/studentregister")
-    @ResponseBody
     public Student registerStudent(@RequestBody Student student) {
         return studentrepo.save(student);
     }
-
 }
